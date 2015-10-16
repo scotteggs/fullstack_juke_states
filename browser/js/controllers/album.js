@@ -1,5 +1,4 @@
 app.controller('AlbumCtrl', function ($scope, $stateParams, PlayerFactory, AlbumFactory) {
-	console.log($stateParams)
 	AlbumFactory.fetchById($stateParams._id)
 			.then(function (album) {
 				$scope.album = album;
