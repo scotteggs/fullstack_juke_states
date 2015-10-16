@@ -1,16 +1,19 @@
-app.controller('ArtistCtrl', function ($scope, $rootScope, PlayerFactory, ArtistFactory) {
-	
-	$rootScope.$on('changeView', function (evt, data) {
-		if (data.name == 'oneArtist') {
-			$scope.showMe = true;
-			ArtistFactory.fetchById(data.id)
+app.controller('ArtistCtrl', function ($scope, $stateParams, PlayerFactory, ArtistFactory) {
+	ArtistFactory.fetchById($stateParams._id)
 			.then(function (artist) {
 				$scope.artist = artist;
 			});
-		} else {
-			$scope.showMe = false;
-		}
-	});
+	// $rootScope.$on('changeView', function (evt, data) {
+	// 	if (data.name == 'oneArtist') {
+	// 		$scope.showMe = true;
+	// 		ArtistFactory.fetchById(data.id)
+	// 		.then(function (artist) {
+	// 			$scope.artist = artist;
+	// 		});
+	// 	} else {
+	// 		$scope.showMe = false;
+	// 	}
+	// });
 
 	$scope.viewAlbum = function (albumId) {
 		$rootScope.$broadcast('changeView', {

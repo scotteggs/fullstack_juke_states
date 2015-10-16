@@ -3,7 +3,7 @@
 	<div class="row">
 		<div ng-repeat="album in albums" class="col-xs-4">
 			<div class="thumbnail">
-				<img ng-src="{{ album.imageUrl }}">
+				<img ui-sref="album({_id: album._id })" ng-src="{{ album.imageUrl }}">
 				<div class="caption">
 					<h5>
 						

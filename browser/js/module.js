@@ -19,7 +19,23 @@ app.config(function($stateProvider) {
 app.config(function($stateProvider) {
 	$stateProvider.state('album', {
 		url:'/album/:_id',
-		templateUrl: '/albumtemplate.html',
+		templateUrl: '/onealbumtemplate.html',
 		controller: 'AlbumCtrl'
+	})
+})
+
+app.config(function($stateProvider) {
+	$stateProvider.state('artist', {
+		url:'/artist/:_id',
+		templateUrl: '/oneartisttemplate.html',
+		controller: 'ArtistCtrl'
+	})
+	.state('artist.albums', {
+		url:'/albums',
+		templateUrl: 'oneartisttemplate_albums.html'
+	})
+	.state('artist.songs', {
+		url:'/songs',
+		templateUrl: 'oneartisttemplate_songs.html'
 	})
 })
